@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5419fed..08427c3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -48,7 +48,7 @@ set(GSTREAMER_LIBRARIES ${GSTPLAYER_LIBRARIES} ${GSTREAMER_LIBRARIES})
+ include_directories(${GSTREAMER_INCLUDE_DIRS})
+ link_directories(${GSTREAMER_LIBRARIES})
+ 
+-if(${WEBOS_TARGET_MACHINE} STREQUAL "qemux86" OR ${WEBOS_TARGET_MACHINE} STREQUAL "qemux86-64")
++if(${WEBOS_TARGET_MACHINE} STREQUAL "qemux86" OR ${WEBOS_TARGET_MACHINE} STREQUAL "qemux86-64" OR ${WEBOS_TARGET_MACHINE} MATCHES "intel-corei7-64")
+     add_definitions(-DPLATFORM_QEMUX86)
+ endif()
+ 
+diff --git a/src/player/CMakeLists.txt b/src/player/CMakeLists.txt
+index 68d0a98..ec70ab8 100644
+--- a/src/player/CMakeLists.txt
++++ b/src/player/CMakeLists.txt
+@@ -143,7 +143,7 @@ elseif(${WEBOS_TARGET_MACHINE} STREQUAL "raspberrypi4" OR ${WEBOS_TARGET_MACHINE
+   message(STATUS "Using config & debug file for raspberrypi4")
+   install(FILES ./raspberrypi4/gst_debug.conf DESTINATION /etc/g-media-pipeline)
+   install(FILES ./raspberrypi4/gst_elements.conf DESTINATION /etc/g-media-pipeline)
+-elseif (${WEBOS_TARGET_MACHINE} STREQUAL "qemux86" OR ${WEBOS_TARGET_MACHINE} STREQUAL "qemux86-64")
++elseif (${WEBOS_TARGET_MACHINE} STREQUAL "qemux86" OR ${WEBOS_TARGET_MACHINE} STREQUAL "qemux86-64" OR ${WEBOS_TARGET_MACHINE} MATCHES "intel-corei7-64")
+   message(STATUS "Using config & debug file for qemux86")
+   install(FILES ./qemux86/gst_debug.conf DESTINATION /etc/g-media-pipeline)
+   install(FILES ./qemux86/gst_elements.conf DESTINATION /etc/g-media-pipeline)

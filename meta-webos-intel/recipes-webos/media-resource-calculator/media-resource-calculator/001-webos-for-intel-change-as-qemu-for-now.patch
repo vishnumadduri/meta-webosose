@@ -1,0 +1,13 @@
+diff --git a/calculator/CMakeLists.txt b/calculator/CMakeLists.txt
+index 8a2dcca..f3937d5 100644
+--- a/calculator/CMakeLists.txt
++++ b/calculator/CMakeLists.txt
+@@ -67,7 +67,7 @@ elseif(${WEBOS_TARGET_MACHINE} STREQUAL "raspberrypi4" OR ${WEBOS_TARGET_MACHINE
+   set(VENC_RESOURCE_HEADER ${CMAKE_CURRENT_BINARY_DIR}/venc_resources_raspberrypi4.h)
+   set(DISP_RESOURCE_HEADER ${CMAKE_CURRENT_BINARY_DIR}/disp_resources_raspberrypi4.h)
+ 
+-elseif(${WEBOS_TARGET_MACHINE} MATCHES "qemux86" OR ${WEBOS_TARGET_MACHINE} MATCHES "qemux86-64")
++elseif(${WEBOS_TARGET_MACHINE} MATCHES "qemux86" OR ${WEBOS_TARGET_MACHINE} MATCHES "qemux86-64" OR ${WEBOS_TARGET_MACHINE} MATCHES "intel-corei7-64")
+   message("Build resource calculator for qemux86")
+ 
+   add_definitions(-DPLATFORM_QEMUX86)
