@@ -1,0 +1,14 @@
+diff --git a/startup/product.env.in b/startup/product.env.in
+index 44c80b0..32d38ad 100644
+--- a/startup/product.env.in
++++ b/startup/product.env.in
+@@ -163,7 +163,8 @@ if [ "$WEBOS_COMPOSITOR_DISPLAY_CONFIG" == "x" ]; then
+             } else {
+                 printf ","
+             }
+-            printf "{\"name\":\"%s\",\"geometry\":\"%s\"}", $2, $3
++            printf "{\"name\":\"%s\",\"geometry\":\"%s\",\"format\":\"%s\"}", $2, $3, (index($2, "Virtual1") == 1) ? "xrgb8888" : "argb8888"
++
+         }
+         END {
+             if (dri != "")
