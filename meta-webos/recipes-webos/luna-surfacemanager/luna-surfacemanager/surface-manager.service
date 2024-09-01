@@ -16,7 +16,8 @@
 
 [Unit]
 Description=meta-webos - "%n"
-DefaultDependencies=no
+After=tmp.mount
+#DefaultDependencies=no
 Requires=ls-hubd.service
 Wants=configd.service
 After=ls-hubd.service configd.service

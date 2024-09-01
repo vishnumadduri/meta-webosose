@@ -1,7 +1,16 @@
 diff --git a/startup/product.env.in b/startup/product.env.in
-index 44c80b0..32d38ad 100644
+index 44c80b0..1c2c41f 100644
 --- a/startup/product.env.in
 +++ b/startup/product.env.in
+@@ -37,7 +37,7 @@ export WEBOS_COMPOSITOR_EXTENSIONS=
+ export QT_WAYLAND_HARDWARE_INTEGRATION=linux-dmabuf-unstable-v1
+ 
+ # Platform plugin to be used
+-export WEBOS_COMPOSITOR_PLATFORM="eglfs_webos"
++#export WEBOS_COMPOSITOR_PLATFORM="eglfs_webos"
+ export QT_QPA_EGLFS_INTEGRATION="eglfs_kms_webos"
+ 
+ # Cursor timeout
 @@ -163,7 +163,8 @@ if [ "$WEBOS_COMPOSITOR_DISPLAY_CONFIG" == "x" ]; then
              } else {
                  printf ","
